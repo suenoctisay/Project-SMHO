@@ -1,0 +1,356 @@
+/* ===============================
+    ------------------------------
+    Color Palette
+    ------------------------------
+    principal: #A3CAEF
+    tittle: #222A68
+    text: #85A1C1
+    black: #06070E
+    white: #EBF2FA
+    decoration 01: #DCF1FA // light blue 01
+    decoration 02: #CCEFF9 // light blue 02
+    decoration 03: #BFD7EA // to increment text
+    decoration 04: #7699D4 // to increment principal color
+=============================== */
+
+
+/* General */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap'); /* Import - Font: Opens Sans */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: #DCF1FA;
+    font-family: 'Open Sans', sans-serif;
+}
+
+ul {
+	list-style: none;
+	display: inline-block;
+}
+ul li {
+	display: inline-block;
+}
+
+a{
+    text-align: center;
+    margin: 5px 0;
+    text-decoration: none;
+    color: #85A1C1;
+}
+a:hover{
+    color: #BFD7EA;
+}
+/* ========================================================================================== */
+
+/* Typography*/
+h2{
+    font-size: 28px;
+    font-weight: bold;
+    color: #222A68;
+}
+
+strong{
+    color:#EBF2FA;
+}
+
+p{
+    font-weight: 300;
+    font-size: 14px;
+    color: #85A1C1;
+    line-height: 30px;
+}
+.description{
+    color: #EBF2FA;
+}
+/* ========================================================================================== */
+
+/* Icons */ 
+.icon-social-media{
+    border: 1px solid #A3CAEF;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    color: #A3CAEF;
+}
+.link-social-media:not(:first-child){
+    margin-left: 10px;
+}
+.link-social-media .icon-social-media{
+    transition: background-color 1s;
+}
+.link-social-media:hover .icon-social-media{
+    color: #EBF2FA;
+    background-color: #A3CAEF;
+    border: 1px solid #EBF2FA;
+}
+
+.icon-input{
+    color: #A3CAEF;
+    padding: 0 5px;
+}
+/* ========================================================================================== */
+
+/* Content */
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.content{ /* white part */
+    background: #EBF2FA;
+    border-radius: 15px;
+    position: relative;
+    width: 960px;
+    height: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.content::before{ /* blue part */
+    background-color: #A3CAEF;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    position: absolute;
+    width: 40%;
+    height: 100%;
+    content: "";
+    left: 0;
+}
+
+.first-column{
+    text-align: center;
+    width: 40%;
+    z-index: 10;
+}
+.second-column{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+}
+
+.label-input{
+    background-color: #DCF1FA;
+    display: flex;
+    align-items: center;
+    margin: 5px;
+}
+.input{
+    height: 45px;
+    width: 100%;
+    border: none;
+    background-color: #DCF1FA;
+}
+
+input{ 
+    -webkit-text-fill-color: #85A1C1 !important; /* input placeholder color */
+}
+input:focus{ 
+    outline: none; /* remove default outline gave by navigators */
+}
+
+.btn{
+    text-transform: uppercase;
+    border-radius: 15px;
+    border: none;
+    font-weight: bold;
+    font-size: 10px;
+    padding: 10px 50px;
+    width: 150px;
+    align-self: center;
+    cursor: pointer;
+    margin: 5px 0;
+}
+.btn-primary{ /* blue part */
+    background-color: transparent;
+    color: #EBF2FA;
+    border: 1px solid #EBF2FA;
+    transition: background-color 1s;
+}
+.btn-primary:hover{
+    color: #A3CAEF;
+    background-color: #EBF2FA;
+}
+.btn-second{ /* white part */
+    background-color: transparent;
+    color: #A3CAEF;
+    border: 1px solid #A3CAEF;
+    transition: background-color 1s;
+}
+.btn-second:hover{
+    color: #EBF2FA;
+    background-color: #A3CAEF;
+}
+/* ========================================================================================== */
+
+/* First Content */
+.first-content{
+    display: flex;
+}
+.first-content .second-column{
+    z-index: 12;
+}
+/* ========================================================================================== */
+
+/* Second Content */
+.second-content{
+    position: absolute;
+    display: flex;
+}
+.second-content .first-column{
+    order: 2;
+    z-index: -1;
+}
+.second-content .second-column{
+    order: 1;
+    z-index: -1;
+}
+/* ========================================================================================== */
+
+/* Transition JS SignIn - SignUp*/
+.sign-in-js .first-content .first-column{
+    z-index: -1;
+}
+.sign-in-js .second-content .second-column{
+    z-index: 11;
+}.sign-in-js .second-content .first-column{
+    z-index: 13;
+}
+
+.sign-in-js .content::before{
+    left: 60%;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    animation: slideIn 1s;
+    z-index: 12;
+}
+.sign-up-js .content::before{
+    animation: slideOut 1s;
+    z-index: 12;
+}
+
+.sign-up-js .second-content .first-column,
+.sign-up-js .second-content .second-column{
+    z-index: -1;
+}
+
+.sign-up-js .first-content .second-column{
+    z-index: 11;
+}
+.sign-up-js .first-content .first-column{
+    z-index: 13;
+}
+
+.sign-in-js .first-content .second-column{
+    position: relative;
+    z-index: -1;
+    animation: displacementLeft 1s;
+}
+.sign-up-js .second-content .second-column{
+    position: relative;
+    z-index: -1;
+    animation: displacementRight 1s;
+}
+/* ========================================================================================== */
+
+/* Animation SignIn - SignUp*/
+@keyframes displacementLeft {
+    from{
+        left: 0;
+        z-index: 12;
+    }
+    25%{
+        left: -80px;
+        opacity: 0.1;
+    }
+    50%{
+        left: -100px;
+        opacity: 0;
+    }
+    to{
+        left: -110px;
+        z-index: -1;
+    }
+}
+@keyframes displacementRight{
+    from{
+        left: 0;
+        z-index: 12;
+    }
+    25%{
+        left: 80px;
+        opacity: 0.1;
+    }
+    50%{
+        left: 100px;
+        opacity: 0;
+    }
+    to{
+        left: 110px;
+        z-index: -1;
+    }
+}
+
+@keyframes slideIn{
+    0%{
+        left: 0;
+        width: 40%;
+    }
+    25%{
+        left: 5%;
+        width: 50%;
+    }
+    50%{
+        left: 25%;
+        width: 60%;
+    }
+    75%{
+        left: 45%;
+        width: 50%;
+    }
+    100%{
+        left: 60%;
+        width: 40%;
+    }
+}
+@keyframes slideOut{
+    0%{
+        left: 60%;
+        width: 40%;
+    }
+    25%{
+        left: 45%;
+        width: 50%;
+    }
+    50%{
+        left: 25%;
+        width: 60%;
+    }
+    75%{
+        left: 5%;
+        width: 50%;
+    }
+    100%{
+        left: 0;
+        width: 40%;
+    }
+}
+/* ========================================================================================== */
